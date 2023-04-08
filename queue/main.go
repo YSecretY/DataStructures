@@ -29,11 +29,10 @@ func (q *Queue) Append(data ...interface{}) {
 		cur := &Node{val, nil}
 		if q.front == nil {
 			q.front = cur
-			q.rear = cur
 		} else {
 			q.rear.next = cur
-			q.rear = cur
 		}
+		q.rear = cur
 	}
 }
 
