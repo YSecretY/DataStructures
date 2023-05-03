@@ -53,3 +53,4 @@ func main() {
 	fmt.Println("queue is empty:", q.Empty())
 
 }
+

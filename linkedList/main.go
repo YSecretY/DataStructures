@@ -32,8 +32,8 @@ func (l *list) append(data ...interface{}) {
 		if l.pbeg == nil {
 			l.pbeg = cur
 			l.pend = cur
+			return
 		}
-
 		l.pend.next = cur
 		l.pend = cur
 	}
@@ -88,11 +88,12 @@ func (l *list) erase(val *el) {
 	}
 
 	prev := l.begin()
-	for cur := l.begin().next; cur != l.end(); cur = cur.next {
+	for cur := l.begin(); cur != l.end(); cur = cur.next {
 		if cur == val {
 			prev.next = cur.next
+		} else {
+			prev = cur
 		}
-		prev = cur
 	}
 }
 
